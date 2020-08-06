@@ -1,3 +1,7 @@
+@extends('layouts.index')
+
+@section('content')
+
 <h2>Редактировать новость</h2>
 <form action="#">
 <input type="text" name="title" placeholder="Заголовок" value="<?=$item['title']; ?>">
@@ -9,3 +13,4 @@
 <p>
 <a href="<?=route('index')?>">На главную</a>
 </p>
+@stop

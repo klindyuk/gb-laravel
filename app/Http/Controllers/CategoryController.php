@@ -16,6 +16,6 @@ class CategoryController extends Controller
         $key = array_search($id, array_column($this->categories, 'id'));
         $category = $this->categories[$key];
         $news = array_filter($this->news, function($v) use ($id) {return $v['category_id'] == $id; });
-        return view('category/show', ['category' => $category, 'news' => $news]);
+        return view('category/show', ['category' => $category, 'news' => $news, 'categories' => $this->categories]);
     }
 }

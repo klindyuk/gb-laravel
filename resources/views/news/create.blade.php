@@ -1,3 +1,7 @@
+@extends('layouts.index')
+
+@section('content')
+
 <h2>Добавить новость</h2>
 <form action="#">
 <input type="text" name="title" placeholder="Заголовок">
@@ -6,3 +10,5 @@
 <br>
 <input type="submit">
 </form>
+
+@stop

@@ -24,3 +24,6 @@ Route::get('/news/create', 'NewsController@create') -> name('news.create');
 Route::get('/news/{id}', 'NewsController@show') -> name('news.show');
 
 Route::get('/news/edit/{id}', 'NewsController@edit') -> name('news.edit');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
