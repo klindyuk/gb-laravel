@@ -10,5 +10,5 @@
 @endforeach
 
 </ul>
-<p><a href="<?=route('news.create');?>">Добавить новость</a></p>
+<p><a href="<?=route('admin.news.create');?>">Добавить новость</a></p>
 @stop
