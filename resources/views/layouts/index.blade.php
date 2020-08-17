@@ -61,7 +61,7 @@
     </div>
   </header>
 
-<x-menu :categories="$categories"/>
+<x-menu/>
 
 
 

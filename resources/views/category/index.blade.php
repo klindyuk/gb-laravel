@@ -3,9 +3,9 @@
 @section('content')
 <h2>Список категорий</h2>
 <ul>
-@foreach($categories as $cat)
+@foreach(getCategories() as $cat)
 <li>
-    <a href="<?=route('category.show', ['id' => $cat['id']]); ?>"><?=$cat['title'];?></a>
+    <a href="<?=route('category.show', ['id' => $cat->id]); ?>"><?=$cat->title;?></a>
 </li>
 @endforeach
 </ul>

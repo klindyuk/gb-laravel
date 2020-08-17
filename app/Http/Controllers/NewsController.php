@@ -8,9 +8,8 @@ class NewsController extends Controller
 {
     public function show(int $id)
     {
-        $key = array_search($id, array_column($this->news, 'id'));
-        $item = $this->news[$key];
-        return view('news/show', ['item' => $item, 'categories' => $this->categories]);
+        $item = (new \App\Models\News())->getById($id);
+        return view('news/show', ['item' => $item]);
     }
 
 }

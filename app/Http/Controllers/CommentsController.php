@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class CommentsController extends Controller
 {
     public function create() {
-        return view('comments.create', ['categories' => $this->categories]);
+        return view('comments.create');
     }
     public function store(Request $request) {
         $data = $request->only(['firstname', 'text']);
