@@ -3,12 +3,11 @@
 @section('content')
 <h2>{{$category->title}}</h2>
 <ul>
-@foreach ($news as $item)
+@foreach ($category->news as $item)
 <li>
-    <a href="{{route('news.show', ['id' => $item->id])}}">{{$item->title}}</a>
+    <a href="{{route('news', ['id' => $item->id])}}">{{$item->title}}</a>
 </li>
 @endforeach
 
 </ul>
-<p><a href="{{route('admin.news.create')}}">Добавить новость</a></p>
 @stop

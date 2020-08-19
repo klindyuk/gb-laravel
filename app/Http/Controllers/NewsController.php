@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
     public function show(int $id)
     {
-        $item = (new \App\Models\News())->getById($id);
+        $item = News::find($id);
         return view('news/show', ['item' => $item]);
     }
 
