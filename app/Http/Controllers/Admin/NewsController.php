@@ -38,6 +38,11 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'img' => 'sometimes|url',
+            'title' => 'required|string|min:5|max:255',
+            'text' => 'required|string'
+        ]);
         $data = $request->only('title', 'slug', 'img', 'text');
         if (!$data['slug']) {
             $data['slug'] = Str::slug($data['title'], '-');
@@ -68,6 +73,7 @@ class NewsController extends Controller
      */
     public function edit(News $news)
     {
+
         return view('admin.news.edit', ['news' => $news]);
     }
 
@@ -80,6 +86,11 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
+        $request->validate([
+            'img' => 'sometimes|url',
+            'title' => 'required|string|min:5|max:255',
+            'text' => 'required|string'
+        ]);
         $news->title = $request->input('title');
         $news->slug = $request->input('slug');
         $news->img = $request->input('img');
