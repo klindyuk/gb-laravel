@@ -23,11 +23,27 @@ Route::post('comments/store', 'CommentsController@store') -> name('comments.stor
 
 Route::get('/news/{id}', 'NewsController@show') -> name('news');
 
-Route::get('/admin', 'Admin\HomeController@index') -> name('admin.index');
+Route::group(['middleware' => 'auth'], function() {
 
-Route::resource('/admin/news', 'Admin\NewsController');
+    Route::get('/account', 'Account\IndexController@index') -> name('account');
 
-Route::resource('/admin/category', 'Admin\CategoryController');
+    Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
+        Route::get('/', 'Admin\HomeController@index') -> name('admin.index');
+
+        Route::resource('/news', 'Admin\NewsController');
+
+        Route::resource('/category', 'Admin\CategoryController');
+
+        Route::resource('/user', 'Admin\UserController');
+    });
+
+
+
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
